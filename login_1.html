@@ -58,9 +58,13 @@
   }
 
   function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
+    FB.login(function(response){
+
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+
+    },{scope: 'public_profile,email,user_likes'});
   }
 
   window.fbAsyncInit = function() {
