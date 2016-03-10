@@ -93,6 +93,12 @@
 
       console.log("likes_arr : "+likes_arr);
 
+      var jsonStr = "{'name':'"+response.name+"', 'email':'"+response.email+"', 'interests':'["+likes_arr+"]'}";
+
+      var jsonObj = JSON.parse(jsonStr);
+
+      console.log("JSON OBJ : "+jsonObj);
+
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
