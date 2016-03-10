@@ -82,24 +82,25 @@
     FB.api('/me?fields=id,name,email,likes', function(response) {
       console.log(JSON.stringify(response));
 
-      var likes_arr = new Array();
-
-      for(i=0; i< response.likes.data.length; i++){
-        likes_arr[i] = response.likes.data[i].name;
-      }
-
-      console.log("likes_arr : "+likes_arr);
-
-      var jsonStr = "{'name':'"+response.name+"', 'email':'"+response.email+"', 'interests':'["+likes_arr+"]'}";
-      
+//      var likes_arr = new Array();
       var jsonObj = {};
+
       jsonObj.name = response.name;
       jsonObj.email = response.email;
 
+      for(i=0; i< response.likes.data.length; i++){
+        //likes_arr[i] = response.likes.data[i].name;
+        jsonObj.interests[i] = response.likes.data[i].name;
+      }
 
-      console.log("name : "+jsonObj.name);
-      console.log("email : "+jsonObj.email);
+      //console.log("likes_arr : "+likes_arr);
 
+      //var jsonStr = "{'name':'"+response.name+"', 'email':'"+response.email+"', 'interests':'["+likes_arr+"]'}";
+
+
+//      console.log("name : "+jsonObj.name);
+//      console.log("email : "+jsonObj.email);
+        console.log("json obj - "+jsonObj);
 
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
