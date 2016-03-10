@@ -91,6 +91,8 @@
         likes_arr[i] = response.likes.data[i].name;
       }
 
+      console.log("likes_arr : "+likes_arr);
+
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
