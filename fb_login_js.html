@@ -85,7 +85,14 @@
       console.log("name : "+response.name);
       console.log("email : "+response.email);
 
-      console.log("likes : "+response.likes.data.length());
+      var likes_arr = new Array();
+
+      var likes_length = response.likes.data.length();
+      for(i=0; i<likes_length; i++){
+        likes_arr[i] = response.likes.data[i].name;
+      }
+
+      console.log("Likes arr : "+likes_arr);
 
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
