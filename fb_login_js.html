@@ -81,6 +81,8 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=id,name,email,likes', function(response) {
       console.log(JSON.stringify(response));
+      var t = JSON.parse(response);
+      alert(t.likes[0]);
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
