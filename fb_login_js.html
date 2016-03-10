@@ -81,9 +81,6 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=id,name,email,likes', function(response) {
       console.log(JSON.stringify(response));
-      
-      console.log("name : "+response.name);
-      console.log("email : "+response.email);
 
       var likes_arr = new Array();
 
@@ -94,11 +91,15 @@
       console.log("likes_arr : "+likes_arr);
 
       var jsonStr = "{'name':'"+response.name+"', 'email':'"+response.email+"', 'interests':'["+likes_arr+"]'}";
-      console.log(jsonStr);
+      
+      var jsonObj = {};
+      jsonObj.name = response.name;
+      jsonObj.email = response.email;
 
-      var jsonObj = JSON.parse(jsonStr);
 
-      console.log("JSON OBJ : "+jsonObj);
+      console.log("name : "+jsonObj.name);
+      console.log("email : "+jsonObj.email);
+
 
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
