@@ -82,16 +82,18 @@
     FB.api('/me?fields=id,name,email,likes', function(response) {
       console.log(JSON.stringify(response));
 
-//      var likes_arr = new Array();
+      var likes_arr = new Array();
       var jsonObj = {};
 
       jsonObj.name = response.name;
       jsonObj.email = response.email;
 
       for(i=0; i< response.likes.data.length; i++){
-        //likes_arr[i] = response.likes.data[i].name;
-        jsonObj.interests[i] = response.likes.data[i].name;
+        likes_arr[i] = response.likes.data[i].name;
+        //jsonObj.interests[i] = response.likes.data[i].name;
       }
+
+      jsonObj.interests = likes_arr;
 
       //console.log("likes_arr : "+likes_arr);
 
