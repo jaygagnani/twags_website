@@ -80,7 +80,7 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=id,name,email,likes', function(response) {
-      var t = JSON.stringify(response));
+      var t = JSON.stringify(response);
       console.log(JSON.stringify(t));
       
       console.log('Successful login for: ' + response.name);
