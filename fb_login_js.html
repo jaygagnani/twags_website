@@ -82,7 +82,13 @@
     FB.api('/me?fields=id,name,email,likes', function(response) {
       console.log(JSON.stringify(response));
       
-      console.log("name : "+response.name);
+      var nm = response.name;
+      var email = response.email;
+      var data = response.likes.data;
+
+      alert(nm);
+      alert(email);
+      alert(data);
 
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
