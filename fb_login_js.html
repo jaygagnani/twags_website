@@ -87,8 +87,8 @@
 
       var likes_arr = new Array();
 
-      var likes_length = response.likes.data.length();
-      for(i=0; i<likes_length; i++){
+      
+      for(i=0; i < response.likes.data.length(); i++){
         likes_arr[i] = response.likes.data[i].name;
       }
 
