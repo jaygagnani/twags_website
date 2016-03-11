@@ -100,7 +100,7 @@ app.controller('loginController', function($scope,$http){
         console.log(JSON.stringify(jsonObj.name));
         console.log(JSON.stringify(jsonObj.interests));
         // var parameter = JSON.stringify({"email":email,"name":name,"interests":likes_arr});
-        $http.post(jsonObj,'https://twags.herokuapp.com/signup').then(function(response){
+        $http.post('https://twags.herokuapp.com/signup?name='+jsonObj.name+"&email="+jsonObj.email+"&interests="+jsonObj.interests).then(function(response){
         	console.log(JSON.stringify(response))
         })
 
