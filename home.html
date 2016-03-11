@@ -5,8 +5,13 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+<!-- favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<style type="text/css">
 		nav{
@@ -21,10 +26,15 @@
 	<!-- navbar -->
 	<nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo left"><img src="./images/logo.png" class="responsive-img" style="height: 60px; width: 120px; margin-left:20px;"/></a>
+      <a href="#" class="brand-logo left"><img src="./images/logo.png" class="responsive-img" style="height: 60px; width: 130px; margin-left:20px;"/></a>
       <ul id="nav-mobile" class="right">
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
+        <li>
+        	<input type="file" id="image_upload" name="image_upload" style="visibility:hidden; width:1px; height: 1px;"/>
+        	<a href="#" onclick="document.getElementById('image_upload').click(); return false;">
+        		<i class="material-icons">photo</i>
+        	</a>
+        </li>
+        <li><a href="" style="padding: 20px; height: 100%;"><img src="./images/graph_icon.svg" class="responsive-img" style="height: 20px; width: 20px;"/></a></li>
         <li><a href=""></a></li>
       </ul>
     </div>
