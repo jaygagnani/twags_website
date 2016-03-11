@@ -3,6 +3,10 @@ app.controller('mainController', function($scope,$http){
 	$http.get('https://twags.herokuapp.com/getposts?objectId=56e1d7ad68fa1b33b03214c2').then(function(response){
 			$scope.tweets = response["data"]
 		})
+
+	$(document).ready(function(){
+      $('nav').show();
+  });
 });
 
 app.controller('chartController', function($scope){
@@ -99,12 +103,22 @@ app.controller('loginController', function($scope,$http){
         console.log(JSON.stringify(jsonObj.email));
         console.log(JSON.stringify(jsonObj.name));
         console.log(JSON.stringify(jsonObj.interests));
+
+        if(typeof(Storage) !== "undefined") {
+    		// Code for localStorage/sessionStorage.
+    		localStorage.setItem("objectId", response.id);
+		} else {
+    		// Sorry! No Web Storage support..
+		}
+
         // var parameter = JSON.stringify({"email":email,"name":name,"interests":likes_arr});
-        $http.post('https://twags.herokuapp.com/signup?name='+jsonObj.name+"&email="+jsonObj.email+"&interests="+jsonObj.interests).then(function(response){
+        $http.post('https://twags.herokuapp.com/signup?name='+jsonObj.name+"&email=smitthakkar96@gmail.com"+"&interests="+jsonObj.interests).then(function(response){
         	console.log(JSON.stringify(response))
+
         })
 
       console.log('Successful login for: ' + response.name);
+      location.href="#home";
     });
   }
 
@@ -114,9 +128,6 @@ app.controller('loginController', function($scope,$http){
     });
   }
 
-  $(document).ready(function(){
-      $('nav').hide();
-  });
 
 
 });
