@@ -29,7 +29,7 @@ app.controller('chartController', function($scope){
 
 });
 
-app.controller('loginController', function($scope){
+app.controller('loginController', function($scope,$http){
 
 	// This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
