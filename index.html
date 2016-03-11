@@ -1,29 +1,27 @@
 <!DOCTYPE>
-<html lang="en">
+<html lang="en" ng-app="app">
 
 <head>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<!-- favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
 
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<style type="text/css">
 		nav{
-			background-color: #2196f3;
+			background: #2196f3;
 		}
 	</style>
 
 </head>
 
-<body onload="hidePreloader();">
+<body onload="hidePreloader();" ng-controller="mainController">
 
-	<!-- navbar -->
 	<nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo left"><img src="./images/logo.png" class="responsive-img" style="height: 60px; width: 130px; margin-left:20px;"/></a>
@@ -34,24 +32,22 @@
         		<i class="material-icons">photo</i>
         	</a>
         </li>
-        <li><a href="" style="padding: 20px; height: 100%;"><img src="./images/graph_icon.svg" class="responsive-img" style="height: 20px; width: 20px;"/></a></li>
+        <li><a href="#chart" style="padding: 20px; height: 100%;"><img src="./images/graph_icon.svg" class="responsive-img" style="height: 20px; width: 20px;"/></a></li>
         <li><a href=""></a></li>
       </ul>
     </div>
   </nav>
 
-  <div class="row">
-  	<div class="col l12 m12 s12">
-  		<div class="card-panel">
-          	<span class="black-text">I am a very simple card. I am good at containing small bits of information.
-          	I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-          	</span>
-        </div>
-  	</div>
+
+  <div id="main">
+
+  	<div ng-view></div>
+
   </div>
 
 
-	<!-- Preloader -->
+
+  	<!-- Preloader -->
 <center>
   <div class="preloader-wrapper big active">
     <div class="spinner-layer" style="border-color: #2196f3;">
@@ -72,6 +68,16 @@
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+<script src="app.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+<script src="./js/chart_global.js"></script>
+
 
 <script>
 
