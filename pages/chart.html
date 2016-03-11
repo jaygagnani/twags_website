@@ -41,8 +41,16 @@
   </nav>
  -->
 <div ng-controller="chartController">
-  <canvas id="myChart" width="400" height="400">
-  </canvas>
+  <!-- <canvas id="myChart" width="400" height="400">
+  </canvas> -->
+
+  <fusioncharts 
+    width="600" 
+    height="400"
+    type="column2d"
+    datasource="{{myDataSource}}"
+    ></fusioncharts>
+
 </div>
 
 

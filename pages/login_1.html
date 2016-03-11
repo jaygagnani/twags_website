@@ -1,12 +1,4 @@
-<!DOCTYPE>
-<html lang="en">
 
-<head>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 
 	<style type="text/css">
 		body{
@@ -14,9 +6,10 @@
 		}
 	</style>
 
-</head>
 
-<body onload="hidePreloader();">
+
+
+<div ng-controller="loginController">
 
 	<div class="row">
 		<div class="col l12 m12 s12">
@@ -52,129 +45,15 @@
 				<div id="fb-root"></div>
           
         <!-- custom login button -->
-        <a href="#" onclick="checkLoginState();"><img src="./images/sign-in-facebook.png" class="responsive-img" style="height:50px; width: 250px; margin-top: 50px;"></a>
+        <a ng-click="checklogin()"><img src="./images/sign-in-facebook.png" class="responsive-img" style="height:50px; width: 250px; margin-top: 50px;"></a>
 			</center>
 		</div>
 	</div>
 
-
-
-  <!-- Preloader -->
-  <center>
-  <div class="preloader-wrapper big active">
-    <div class="spinner-layer" style="border-color: #1664a3;">
-      <div class="circle-clipper left">
-        <div class="circle"></div>
-      </div><div class="gap-patch">
-        <div class="circle"></div>
-      </div><div class="circle-clipper right">
-        <div class="circle"></div>
-      </div>
-    </div>
-  </div>
-</center>
-
-	<!-- Import jquery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
-	<!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</div>
 
   <script>
 
-
-  function hidePreloader(){
-    $('.spinner-layer').fadeOut(1000);
-  }
-
-
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-
-    if (response.status === 'connected') {
-    	fetchData();
-    } else if (response.status === 'not_authorized') {
-    	alert('Please log into this app.');
-    } else {
-    	alert('Please log into Facebook.');
-    }
-  }
-
-  function checkLoginState() {
-    FB.login(function(response){
-
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
-
-    },{scope: 'public_profile,email,user_likes'});
-  }
-
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '756962984405203',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.5' // use graph api version 2.5
-  });
-
-
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
-  };
-
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-  function fetchData() {
-    FB.api('/me?fields=id,name,email,likes', function(response) {
-      console.log(JSON.stringify(response));
-
-      var likes_arr = new Array();
-      var jsonObj = {};
-
-      jsonObj.name = response.name;
-      jsonObj.email = response.email;
-
-      for(i=0; i< response.likes.data.length; i++){
-        likes_arr[i] = response.likes.data[i].name;
-      }
-
-      jsonObj.interests = likes_arr;
-
-        console.log(JSON.stringify(jsonObj));
-        console.log(JSON.stringify(jsonObj.name));
-        console.log(JSON.stringify(jsonObj.email));
-        console.log(JSON.stringify(jsonObj.name));
-        console.log(JSON.stringify(jsonObj.interests));
-
-
-      console.log('Successful login for: ' + response.name);
-    });
-  }
-
-  function logout(){
-    FB.logout(function(response) {
-      // Person is now logged out
-    });
-  }
-
-  $(document).ready(function(){
-
-  });
-
+  
 </script>
 
-</body>
-
-
-</html>

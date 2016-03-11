@@ -45,27 +45,27 @@
   </nav>
  -->
 
-<div class="row">
+<div class="row"  ng-repeat="t in tweets">
   <div class="col l12 m12 s12">
     <div class="card-panel row">
 
         <div class="col l2 m2 s2">
-          <img src="./images/favicon.png" class="responsive-img" />
+          <img ng-src="{{ t.by_profilepicture }}" class="responsive-img" />
         </div>
       
         <div class="col l10 m10 s10">
          
           <div class="row">
             <div class="col l12 m12 s12">
-              <span style="float:left;"><h4>#tag</h4></span>
+              <span style="float:left;"><h4 ng-bind="t.by_name"></h4></span>
               <span id="timestamp" class="right">11/03/2016</span>
             </div>
           </div>
       
           <div class="row">
             <div class="col l12 m12 s12">
-              <span class="black-text">I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+              <span class="black-text">
+                {{t.text}}
               </span>
             </div>
           </div>
