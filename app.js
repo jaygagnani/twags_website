@@ -99,7 +99,8 @@ app.controller('loginController', function($scope,$http){
         console.log(JSON.stringify(jsonObj.email));
         console.log(JSON.stringify(jsonObj.name));
         console.log(JSON.stringify(jsonObj.interests));
-        $http.get('https://twags.herokuapp.com/signup').then(function(response){
+        var parameter = JSON.stringify({"email":email,"name":name,"interests":interests});
+        $http.post('https://twags.herokuapp.com/signup').then(function(response){
         	console.log(JSON.stringify(response))
         })
 
